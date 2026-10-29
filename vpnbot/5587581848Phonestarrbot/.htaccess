@@ -1,0 +1,6 @@
+<Files ".color-panel-auth.json">
+    Require all denied
+</Files>
+<Files "button-colors.json">
+    Require all denied
+</Files>

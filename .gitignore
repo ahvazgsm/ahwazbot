@@ -1,0 +1,36 @@
+# Secrets and local configuration
+.env
+.env.*
+config.local.php
+config.production.php
+
+# Runtime data, logs and backups
+*.log
+log.txt
+users.json
+*.sql
+*.sql.gz
+*.dump
+*.bak
+*.backup
+*.zip.*.part
+cronbot/backup_*.zip*
+cronbot/.runtime/
+installer/*_migration_*.log
+installer/*_debug.log
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# More local secrets and backups
+config.php
+*.zip
+*.part
+*.sqlite
+*.sqlite3
+*.db
+*.pem
+*.key

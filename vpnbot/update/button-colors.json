@@ -1,0 +1,28 @@
+{
+  "primary": "primary",
+  "success": "success",
+  "danger": "danger",
+  "buttons": {
+    "main_buy": "success",
+    "main_test": "primary",
+    "backorder": "primary",
+    "account": "success",
+    "main_support": "success",
+    "admin": "danger",
+    "choosepaymentmethod": "primary",
+    "AddBalance": "success",
+    "backuser": "danger",
+    "customsellvolume": "success"
+  },
+  "glass_mode": true,
+  "keyboard_mode": "reply_persistent",
+  "reply_buttons": {
+    "buy": "success",
+    "test": "primary",
+    "my_service": "primary",
+    "wallet": "success",
+    "support": "success",
+    "admin": "primary",
+    "back": "danger"
+  }
+}
