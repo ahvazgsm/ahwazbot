@@ -16,57 +16,63 @@ init_logging() {
 
 ```bash
 log_message() {
-    local level="$1"
-    shift
+    local level="$1"; shift
     local message="$*"
-    local timestamp color
-
+    local timestamp
+    local color
     timestamp="$(date '+%Y-%m-%d %H:%M:%S')"
-
     case "$level" in
-        INFO)   color='\033[1;34m' ;;
-        WARN)   color='\033[1;33m' ;;
-        ERROR)  color='\033[1;31m' ;;
-        ACTION) color='\033[1;36m' ;;
-        *)      color='\033[0m' ;;
+        INFO) color="\033[1;34m" ;;
+        WARN) color="\033[1;33m" ;;
+        ERROR) color="\033[1;31m" ;;
+        ACTION) color="\033[1;36m" ;;
+        *) color="\033[0m" ;;
     esac
-
-    printf '%b[%s]\033[0m %s\n' "$color" "$level" "$message"
-    printf '%s [%s] %s\n' "$timestamp" "$level" "$message" >> "$LOG_FILE"
+    echo -e "${color}[${level}]\033[0m $message"
+    printf '%s [%s] %s\n' "$timestamp" "$level" "$message" >>"$LOG_FILE"
 }
 
 log_action() { log_message "ACTION" "$@"; }
-log_info()  { log_message "INFO" "$@"; }
-log_warn()  { log_message "WARN" "$@"; }
+log_info() { log_message "INFO" "$@"; }
+log_warn() { log_message "WARN" "$@"; }
 log_error() { log_message "ERROR" "$@"; }
 
 init_logging
-log_info "AhwazBot installer initialized (PID $$)"
-
-# نمایش فوری متن؛ بدون sleep
+log_info "Mirza installer initialized (PID $$)"
 type_text() {
-    printf '%s\n' "$1"
+    local text="$1"
+    local delay="${2:-0.03}"
+    local i=0
+    while [ $i -lt ${#text} ]; do
+        echo -n "${text:$i:1}"
+        sleep "$delay"
+        ((i++))
+    done
+    echo ""
 }
 
 type_text_colored() {
     local color="$1"
     local text="$2"
-    printf '%b%s\033[0m\n' "$color" "$text"
+    local delay="${3:-0.03}"
+    echo -ne "$color"
+    type_text "$text" "$delay"
+    echo -ne "\033[0m"
 }
 
-show_animated_logo() {
-    printf '\n'
-    printf '\033[1;36m%s\033[0m\n' '█████╗ ██╗  ██╗██╗    ██╗ █████╗ ███████╗██████╗  ██████╗ ████████╗'
-    printf '\033[1;32m%s\033[0m\n' '██╔══██╗██║  ██║██║    ██║██╔══██╗╚══███╔╝██╔══██╗██╔═══██╗╚══██╔══╝'
-    printf '\033[1;34m%s\033[0m\n' '███████║███████║██║ █╗ ██║███████║  ███╔╝ ██████╔╝██║   ██║   ██║'
-    printf '\033[1;36m%s\033[0m\n' '██╔══██║██╔══██║██║███╗██║██╔══██║ ███╔╝  ██╔══██╗██║   ██║   ██║'
-    printf '\033[1;32m%s\033[0m\n' '██║  ██║██║  ██║╚███╔███╔╝██║  ██║███████╗██████╔╝╚██████╔╝   ██║'
-    printf '\033[1;34m%s\033[0m\n' '╚═╝  ╚═╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚══════╝╚═════╝  ╚═════╝    ╚═╝'
-    printf '\n'
-    printf '\033[1;33m%s\033[0m\n' '                 AhwazBot Installer'
-    printf '\033[1;36m%s\033[0m\n' '                 Developer: AhwazGSM'
-    printf '\033[1;36m%s\033[0m\n' '                 GitHub: github.com/ahvazgsm/ahwazbot'
-    printf '\n'
+function show_animated_logo() {
+echo ""
+printf '\033[1;36m%s\033[0m\n' "█████╗ ██╗  ██╗██╗    ██╗ █████╗ ███████╗██████╗  ██████╗ ████████╗"
+printf '\033[1;32m%s\033[0m\n' "██╔══██╗██║  ██║██║    ██║██╔══██╗╚══███╔╝██╔══██╗██╔═══██╗╚══██╔══╝"
+printf '\033[1;34m%s\033[0m\n' "███████║███████║██║ █╗ ██║███████║  ███╔╝ ██████╔╝██║   ██║   ██║"
+printf '\033[1;36m%s\033[0m\n' "██╔══██║██╔══██║██║███╗██║██╔══██║ ███╔╝  ██╔══██╗██║   ██║   ██║"
+printf '\033[1;32m%s\033[0m\n' "██║  ██║██║  ██║╚███╔███╔╝██║  ██║███████╗██████╔╝╚██████╔╝   ██║"
+printf '\033[1;34m%s\033[0m\n' "╚═╝  ╚═╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚══════╝╚═════╝  ╚═════╝    ╚═╝"
+echo ""
+printf '\033[1;33m%s\033[0m\n' "                 AhwazBot Installer"
+printf '\033[1;36m%s\033[0m\n' "                 Developer: AhwazGSM"
+printf '\033[1;36m%s\033[0m\n' "                 GitHub: github.com/ahvazgsm/ahwazbot"
+echo ""
 }
 ```
 
