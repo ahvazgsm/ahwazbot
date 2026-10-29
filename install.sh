@@ -62,16 +62,17 @@ type_text_colored() {
 function show_animated_logo() {
     clear
     echo ""
-    type_text_colored "\033[1;36m" "    █████╗ ██╗  ██╗██╗    ██╗ █████╗ ███████╗██████╗  ██████╗ ████████╗" 0.003
-    type_text_colored "\033[1;32m" "   ██╔══██╗██║  ██║██║    ██║██╔══██╗╚══███╔╝██╔══██╗██╔═══██╗╚══██╔══╝" 0.003
-    type_text_colored "\033[1;34m" "   ███████║███████║██║ █╗ ██║███████║  ███╔╝ ██████╔╝██║   ██║   ██║" 0.003
-    type_text_colored "\033[1;36m" "   ██╔══██║██╔══██║██║███╗██║██╔══██║ ███╔╝  ██╔══██╗██║   ██║   ██║" 0.003
-    type_text_colored "\033[1;32m" "   ██║  ██║██║  ██║╚███╔███╔╝██║  ██║███████╗██████╔╝╚██████╔╝   ██║" 0.003
-    type_text_colored "\033[1;34m" "   ╚═╝  ╚═╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚══════╝╚═════╝  ╚═════╝    ╚═╝" 0.003
+    sleep 0.05
+    type_text_colored "\033[1;32m" "███╗░░░███╗ ██╗ ██████╗░ ███████╗ ░█████╗░ ██████╗░ ██████╗░ ░█████╗░" 0.003
+    type_text_colored "\033[1;32m" "████╗░████║ ██║ ██╔══██╗ ╚════██║ ██╔══██╗ ██╔══██╗ ██╔══██╗ ██╔══██╗" 0.003
+    type_text_colored "\033[1;37m" "██╔████╔██║ ██║ ██████╔╝ ░░███╔═╝ ███████║ ██████╔╝ ██████╔╝ ██║░░██║" 0.003
+    type_text_colored "\033[1;37m" "██║╚██╔╝██║ ██║ ██╔══██╗ ██╔══╝░░ ██╔══██║ ██╔═══╝░ ██╔══██╗ ██║░░██║" 0.003
+    type_text_colored "\033[1;31m" "██║░╚═╝░██║ ██║ ██║░░██║ ███████╗ ██║░░██║ ██║░░░░░ ██║░░██║ ╚█████╔╝" 0.003
+    type_text_colored "\033[1;31m" "╚═╝░░░░░╚═╝ ╚═╝ ╚═╝░░╚═╝ ╚══════╝ ╚═╝░░╚═╝ ╚═╝░░░░░ ╚═╝░░╚═╝ ░╚════╝░" 0.003
     echo ""
-    type_text_colored "\033[1;33m" "                  AhwazBot Installer" 1.0
-    type_text_colored "\033[1;36m" "                  Developer: AhwazGSM" 1.0
-    type_text_colored "\033[1;36m" "                  GitHub: github.com/ahvazgsm/ahwazbot" 1.0
+    type_text_colored "\033[1;33m" "                    Mirza Pro Bot Installer v3.9" 0.015
+    type_text_colored "\033[1;36m" "                    Developer: mahdiMGF2" 0.015
+    type_text_colored "\033[1;36m" "                    debugger:  github.com/ahvazgsm/ahwazbot" 0.015
     echo ""
 }
 
