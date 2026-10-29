@@ -37,7 +37,7 @@ log_warn() { log_message "WARN" "$@"; }
 log_error() { log_message "ERROR" "$@"; }
 
 init_logging
-log_info "Mirza installer initialized (PID $$)"
+log_info " installer initialized (PID $$)"
 type_text() {
     local text="$1"
     local delay="${2:-0.03}"
@@ -78,8 +78,8 @@ function show_animated_logo() {
 
 
 check_ssl_status() {
-    if [ -f "/var/www/html/mirzabotconfig/config.php" ]; then
-        domain=$(grep '^\$domainhosts' "/var/www/html/mirzabotconfig/config.php" | cut -d"'" -f2 | cut -d'/' -f1)
+    if [ -f "/var/www/html/botconfig/config.php" ]; then
+        domain=$(grep '^\$domainhosts' "/var/www/html/botconfig/config.php" | cut -d"'" -f2 | cut -d'/' -f1)
 
         if [ -n "$domain" ] && [ -f "/etc/letsencrypt/live/$domain/cert.pem" ]; then
             expiry_date=$(openssl x509 -enddate -noout -in "/etc/letsencrypt/live/$domain/cert.pem" | cut -d= -f2)
@@ -100,7 +100,7 @@ check_ssl_status() {
 }
 
 check_bot_status() {
-    if [ -f "/var/www/html/mirzabotconfig/config.php" ]; then
+    if [ -f "/var/www/html/botconfig/config.php" ]; then
         echo -e "\033[32m✅ Bot is installed\033[0m"
         check_ssl_status
     else
@@ -400,12 +400,12 @@ function show_menu() {
     check_ssl_status
 
     type_text_colored "\033[1;32m" "╔════════════════════════════════════════════════╗" 0.005
-    type_text_colored "\033[1;32m" "║            MIRZA PRO - MAIN MENU               ║" 0.005
+    type_text_colored "\033[1;32m" "║            ahwazgsm PRO - MAIN MENU               ║" 0.005
     type_text_colored "\033[1;32m" "╠════════════════════════════════════════════════╣" 0.005
     print_menu_spacer
-    print_menu_option "1)" "Install Mirza Bot"
-    print_menu_option "2)" "Update Mirza Bot"
-    print_menu_option "3)" "Remove Mirza Bot"
+    print_menu_option "1)" "Install ahwazgsm Bot"
+    print_menu_option "2)" "Update ahwazgsm Bot"
+    print_menu_option "3)" "Remove ahwazgsm Bot"
     print_menu_option "4)" "Export Database"
     print_menu_option "5)" "Import Database"
     print_menu_option "6)" "Configure Automated Backup"
